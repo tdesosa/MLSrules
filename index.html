@@ -26,11 +26,22 @@
                 name: 'InterMiamiFC',
                 age: 0,
             }
+            handleChange = (e) => {
+                this.setState({
+                    name: e.target.value
+                })
+            }
+            handleSubmit = (e) => {
+                e.preventDefault();
+            }
             render() {
                 return (
                     <div className="app-content">
-                        <h1>MLS Rules!</h1>
-                        <p>The best team in MLS is: {this.state.name} and I am {this.state.age}</p>
+                        <h1>Our Team Name Is: { this.state.name }</h1>
+                        <form onSubmit={ this.handleSubmit }>
+                            <input type="text" onChange={ this.handleChange }/>
+                            <button>Submit</button>
+                        </form>
                     </div>
                 )
             }
